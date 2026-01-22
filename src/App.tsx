@@ -1,5 +1,11 @@
+import gsap from 'gsap';
+import { Draggable } from 'gsap/all';
+
 import { Dock, Navbar, Welcome} from './components'
 import './index.css'
+import { Terminal } from '#windows';
+
+gsap.registerPlugin(Draggable);
 
 function App() {
   return (
@@ -7,6 +13,8 @@ function App() {
       <Navbar/>
       <Welcome/>
       <Dock/>
+
+      <Terminal/>
     </main>
   )
 }
