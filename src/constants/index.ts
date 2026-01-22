@@ -72,7 +72,7 @@ const navLinks = [
       icon: "trash.png",
       canOpen: false,
     },
-  ];
+  ] as const;
   
   const blogPosts = [
     {
