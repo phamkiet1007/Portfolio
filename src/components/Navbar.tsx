@@ -1,15 +1,31 @@
 import dayjs from "dayjs";
-import { navIcons, navLinks } from "#constants/index";
+import { navIcons } from "#constants/index";
+import { use } from "react";
+import useWindowStore from "#store/window";
 
+export interface NavLink {
+    id: number;
+    name: string;
+    type: "finder" | "contact" | "resume" | "safari" | "photos" | "terminal" | "txtfile" | "imgfile";
+}
+
+export const navLinks: NavLink[] = [
+    { id: 1, name: "Finder", type: "finder" },
+    { id: 2, name: "Contact", type: "contact" },
+    { id: 3, name: "Resume", type: "resume" },
+];
 
 const Navbar = () => {
+
+    const {openWindow} = useWindowStore();
+
     return <nav>
         <div>
             <img src='/images/logo.svg' alt='logo'/>
             <p className="font-bold">Kiet's Portfolio</p>
             <ul>
-                {navLinks.map(({id, name}) => (
-                    <li key={id}>
+                {navLinks.map(({id, name, type}) => (
+                    <li key={id} onClick={() => openWindow(type)}>
                         <p>{name}</p>
                     </li>
                 ))}

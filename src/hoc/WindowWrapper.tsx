@@ -43,10 +43,10 @@ const WindowWrapper = (Component: ComponentType, windowKey: keyof (typeof WINDOW
         }, [isOpen]);
 
         return <section 
-        id={windowKey} 
-        ref={ref} 
-        style={{zIndex}}
-        className="absolute"
+            id={windowKey} 
+            ref={ref} 
+            style={{zIndex}}
+            className="absolute"
         >
             <Component {...props} />
         </section>
